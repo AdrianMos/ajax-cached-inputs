@@ -1,0 +1,83 @@
+
+body {
+    /*min-height: 75rem;*/
+    padding-top: $topmenu-height;
+    /*font-family: "Proxima Nova",-apple-system,system-ui,system-ui,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;*/
+}
+
+
+.body-reduced {
+    padding-top: 0;
+}
+
+header { 
+    background-color: $bk-color-header;
+}
+
+main.container {
+    padding-top: 60px;
+}
+
+ul {
+    padding-left: 0px;
+    margin-bottom:0;
+    list-style-type: none;
+}
+
+
+
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+
+
+.text-small {
+    font-size: 0.85rem;
+}
+
+.text-super-muted {
+    color: #d7d7d7;
+}
+
+
+.link-muted {
+    text-decoration: none;
+    font-size: 0.85rem;
+    color: #ababab;
+    line-height: 1.0rem;
+    
+    &:hover {
+        text-decoration: underline;
+        color: #ababab;
+    }
+}
+
+
+
+
+// Separator with centered text, eg -------- sau ---------
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #d0d1d1;
+    font-size: 0.85rem;
+
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #d0d1d1;
+    }
+
+    &:not(:empty)::before {
+        margin-right: .25em;
+    }
+
+    &:not(:empty)::after {
+        margin-left: .25em;
+    }
+}

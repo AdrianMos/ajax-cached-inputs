@@ -1,0 +1,20 @@
+
+.btn-light {
+    font-weight: 600;
+
+
+    &:hover, &:focus, &:active, &.active, .open > .dropdown-toggle.btn-light {
+        background-color: #ebebeb;
+        border-color: #285e8e;
+    }
+
+}
+
+
+
+
+.input-group-text {
+    background-color: #F93154;
+    color: white;
+} 
+
