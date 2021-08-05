@@ -6,7 +6,6 @@ class Cacher {
 
     cache(request, response) {
         this.cached[request] = response;
-        //console.log(Object.keys(this.cached));
     }
 
     isCached(request) {
@@ -73,8 +72,7 @@ class SuggestionsModel {
 
     hasSuggestions() {
         return this.len > 0
-    }
-    
+    }    
 }
 
 
@@ -120,13 +118,11 @@ class SearchSuggestionsController {
 
     handleSuggestions(input) {
 
-        //console.log("handle suggestions called");
         if (input == "") {
             // show default links... hide for now
             this.view.hideDropdown();
             return;
         }
-
 
         if (this.cacher.isCached(input)) {
             var suggestions = this.cacher.getCache(input);
@@ -162,11 +158,6 @@ class SearchSuggestionsController {
             }
         });
 
-        // _self.view.dropdown.click(function (event) {
-        //     console.log("onclick");
-        // });
-
-
     
         _self.view.input_field.on("paste", function (e) {
             var _input = this;
@@ -178,18 +169,12 @@ class SearchSuggestionsController {
         });
 
 
-        //$('#id_search_input').on("submit", function (e) {
-        //    e.preventDefault(); 
-        //    console.log("SUBMIT");
-            
-        //});
 
         // Handle up/down/tab keys 
         _self.view.input_field.on("keydown", function (e) {
 
             switch (e.which) {
-                case 38: // arrow up
-                    //e.stopPropagation();
+                case 38: // arrow up                    
                     _self.view.unmarkSelection(_self.model.getSelectionIndex())
                     _self.model.selectPrev();
                     _self.view.showSelectionInInputField(_self.model.getSelection());
@@ -210,8 +195,7 @@ class SearchSuggestionsController {
                     return true;
                     break;
 
-                case 13: // enter 
-                    //e.preventDefault();
+                case 13: // enter                     
                     _self.view.input_field.closest('form').submit();
 
                     console.log("SUBMIT");
@@ -250,10 +234,8 @@ class SearchSuggestionsController {
             var clickedOutside = !container.is(e.target) && container.has(e.target).length === 0;
             if (clickedOutside) {
                 _self.view.hideDropdown();
-                // $("#id_search_with_suggestions").unbind('click', clickDocument);
             }
         });
-
     }
 }
 
@@ -329,16 +311,13 @@ class SuggestionsView {
 /////////////////// Search Result Widget  ///////////////////
 /////////////////////////////////////////////////////////////
 
-
 class SearchSuggestionsWidget {
 
     constructor(id, ajaxSuggestionsUrl) {    
         var container = $('#'+id);
         this.view = new SuggestionsView(container, this.searchResultFormatFunction);
         this.model = new SuggestionsModel();
-        this.controller = new SearchSuggestionsController(this.view, this.model, ajaxSuggestionsUrl);
-
-       
+        this.controller = new SearchSuggestionsController(this.view, this.model, ajaxSuggestionsUrl);       
     }
 
     init() {
@@ -387,8 +366,6 @@ class SearchSuggestionsWidget {
 /////////////////////////////////////////////////////////////
 ///////////////// Category Select Controller ////////////////
 /////////////////////////////////////////////////////////////
-
-
 
 class CategorySelectWidget {
 
